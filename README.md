@@ -160,3 +160,4 @@ Khung hữu thanh có đỉnh nhọn hoắt đứng sừng sững tại $T_0$, t
 Toàn bộ 4 tệp kiểm thử được vẽ đồng bộ sóng âm và đường bao $F_0$:
 
 ![Demo 4 Signals](figures/demo_all_test_signals.png)
+

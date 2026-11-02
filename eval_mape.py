@@ -81,3 +81,4 @@ def main():
 	print(f"    - FINAL_SCORE (Độ chính xác): {final_score:.2f}% (Thang điểm 10: {final_score/10:.2f} / 10)\n")
 if __name__=='__main__':
 	main()
+

@@ -89,3 +89,4 @@ def run_train_analysis():
 	print(f"Train analysis done. Otsu={t_otsu:.2f}, Midpoint={t_mid:.2f}, Optimal T*={best_t:.2f}, Train Error={min_score:.2f}%")
 if __name__=='__main__':
 	run_train_analysis()
+
