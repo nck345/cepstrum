@@ -9,9 +9,7 @@ import matplotlib.pyplot as plt
 from cepstrum_utils import read_lab,extract_cepstrum_features,compute_frame_cepstrum
 BASE_DIR=os.path.dirname(os.path.abspath(__file__))
 TEST_DIR=os.path.join(BASE_DIR,'TinHieuKiemThu')
-TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen-FineTuning')
-if not os.path.exists(TRAIN_DIR):
-	TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen')
+TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen_latest')
 FIG_DIR=os.path.join(BASE_DIR,'figures')
 os.makedirs(FIG_DIR,exist_ok=True)
 plt.rcParams['font.sans-serif']='Arial'

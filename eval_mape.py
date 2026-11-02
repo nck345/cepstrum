@@ -8,9 +8,7 @@ import scipy.io.wavfile as wav
 import scipy.signal as signal
 from cepstrum_utils import read_lab,extract_cepstrum_features
 BASE_DIR=os.path.dirname(os.path.abspath(__file__))
-TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen-FineTuning')
-if not os.path.exists(TRAIN_DIR):
-	TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen')
+TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen_latest')
 TEST_DIR=os.path.join(BASE_DIR,'TinHieuKiemThu')
 CONFIG_PATH=os.path.join(BASE_DIR,'threshold_config.json')
 def load_config():

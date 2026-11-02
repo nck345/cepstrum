@@ -9,9 +9,7 @@ import scipy.signal as signal
 import matplotlib.pyplot as plt
 from cepstrum_utils import read_lab,extract_cepstrum_features,otsu_unsupervised_threshold
 BASE_DIR=os.path.dirname(os.path.abspath(__file__))
-TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen-FineTuning')
-if not os.path.exists(TRAIN_DIR):
-	TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen')
+TRAIN_DIR=os.path.join(BASE_DIR,'TinHieuHuanLuyen_latest')
 CONFIG_PATH=os.path.join(BASE_DIR,'threshold_config.json')
 FIG_DIR=os.path.join(BASE_DIR,'figures')
 os.makedirs(FIG_DIR,exist_ok=True)

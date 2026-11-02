@@ -63,8 +63,7 @@ Toàn bộ mã nguồn sử dụng **đường dẫn tương đối**, có thể
 ```
 cepstrum/
 │
-├── TinHieuHuanLuyen/             # Tập âm thanh huấn luyện gốc + nhãn thời gian (.lab)
-├── TinHieuHuanLuyen-FineTuning/  # Tập âm thanh huấn luyện có nhãn chuẩn F0mean, F0std, F0num
+├── TinHieuHuanLuyen_latest/      # Tập âm thanh huấn luyện chuẩn có nhãn F0mean, F0std, F0num
 ├── TinHieuKiemThu/               # Tập âm thanh kiểm thử (phone_F2, phone_M2, studio_F2, studio_M2)
 │
 ├── figures/                      # Thư mục lưu trữ đồ thị kết quả
@@ -120,7 +119,7 @@ pip install numpy scipy matplotlib
 
 ## 6. KẾT QUẢ THỰC NGHIỆM ĐỊNH LƯỢNG
 
-### Bảng 1: Kết quả trên Tập Huấn luyện (`TinHieuHuanLuyen-FineTuning`) với $T^* = 3.90$
+### Bảng 1: Kết quả trên Tập Huấn luyện (`TinHieuHuanLuyen_latest`) với $T^* = 3.90$
 
 | File | MAPE $F_0$ mean (%) | MAPE $F_0$ std (%) | MAPE $F_0$ num (%) | Average MAPE (%) |
 | :--- | :---: | :---: | :---: | :---: |
