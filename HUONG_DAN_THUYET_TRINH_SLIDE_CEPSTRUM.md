@@ -201,3 +201,4 @@ Nếu giảng viên yêu cầu: *"Em mở code lên chạy thử trực tiếp 1
    ```
    - Chỉ vào đồ thị Histogram:
      > *"Dạ đây là đồ thị phân bố hai đỉnh thể hiện giả định 50/50 và vị trí ngưỡng tối ưu $T^* = 3.90$ nằm ở đáy thung lũng."*
+

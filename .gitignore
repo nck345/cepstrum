@@ -4,4 +4,8 @@ __pycache__/
 .vscode/
 .idea/
 .DS_Store
-
+*.wav
+*.lab
+!README.md
+!HUONG_DAN_THUYET_TRINH_SLIDE_CEPSTRUM.md
+!XLTN_STE+ZCR_updated.pptx
