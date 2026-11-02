@@ -1,0 +1,12 @@
+{
+  "algorithm": "Cepstrum",
+  "frame_len_ms": 30.0,
+  "hop_len_ms": 10.0,
+  "f0_min_hz": 70.0,
+  "f0_max_hz": 400.0,
+  "energy_gate_ratio": 0.02,
+  "unsupervised_otsu_threshold": 5.62,
+  "unsupervised_midpoint_threshold": 4.25,
+  "optimal_threshold": 3.9,
+  "train_score_mape": 11.51
+}
