@@ -107,9 +107,58 @@ def generate_voiced_vs_unvoiced():
 	plt.savefig(out_path)
 	plt.close()
 	print(f"Generated: {out_path}")
+def generate_quefrency_results_4_test_files():
+	wav_files=sorted(glob.glob(os.path.join(TEST_DIR,'*.wav')))
+	fig,axs=plt.subplots(2,2,figsize=(13.5,7.8),dpi=150)
+	axs=axs.flatten()
+	for idx,wf in enumerate(wav_files):
+		bname=os.path.basename(wf)
+		fs,data=wav.read(wf)
+		if data.ndim>1:data=data[:,0]
+		data=data.astype(np.float32)
+		lab_file=os.path.splitext(wf)[0]+'.lab'
+		gt_mean,gt_std,gt_num,_=read_lab(lab_file)
+		time_axis,proms,k_stars,c_maxs,energies,k_min,k_max=extract_cepstrum_features(data,fs)
+		f0_candidates=fs/k_stars
+		v_idx=np.where(proms>=4.5)[0]
+		diffs=np.abs(f0_candidates[v_idx]-gt_mean)
+		chosen_frame_idx=v_idx[np.argmin(diffs)]
+		fl=int(round(0.03*fs))
+		hl=int(round(0.01*fs))
+		start_sample=chosen_frame_idx*hl
+		frame=data[start_sample:start_sample+fl]
+		n_fft=2048 if fl<=2048 else 4096
+		best_k,c_max,prom,cep=compute_frame_cepstrum(frame,fs,k_min,k_max,n_fft)
+		quef_ms=np.arange(len(cep))*(1000.0/fs)
+		best_t_ms=best_k*(1000.0/fs)
+		best_f0=fs/best_k
+		t_time=time_axis[chosen_frame_idx]
+		ax=axs[idx]
+		disp_max_ms=16.0
+		disp_len=int(round(disp_max_ms*1e-3*fs))
+		disp_len=min(disp_len,len(cep)//2)
+		q_disp=quef_ms[:disp_len]
+		c_disp=cep[:disp_len]
+		ax.plot(q_disp,c_disp,color='#1F4E79',linewidth=1.3,label='Pho Quefrency c(n)')
+		ax.axvspan(0,2.5,color='#E2E8F0',alpha=0.65,label='Vung Formant (< 2.5 ms)')
+		ax.axvspan(2.5,14.3,color='#EBF8FF',alpha=0.65,label='Dai sinh ly (70 - 400 Hz)')
+		ax.scatter([best_t_ms],[c_max],color='#D9381E',s=50,zorder=5,label=f'Dinh T0={best_t_ms:.2f}ms (F0={best_f0:.1f}Hz)')
+		ax.axvline(best_t_ms,color='#D9381E',linestyle=':',linewidth=1.2)
+		ax.set_title(f"{bname} - Khung huu thanh tai t = {t_time:.2f}s | F0 = {best_f0:.1f} Hz (Chuan .lab: {gt_mean:.1f} Hz)",fontsize=10.5,fontweight='bold',color='#075289')
+		ax.set_xlabel('Quefrency (ms)',fontsize=9.5)
+		ax.set_ylabel('Bien do Cepstrum',fontsize=9.5)
+		ax.set_xlim(0,disp_max_ms)
+		ax.grid(True)
+		ax.legend(loc='upper right',fontsize=8.5,framealpha=0.9)
+	plt.tight_layout()
+	out_path=os.path.join(FIG_DIR,'quefrency_results_4_test_files.png')
+	plt.savefig(out_path)
+	plt.close()
+	print(f"Generated: {out_path}")
 def main():
 	generate_test_contours(3.90)
 	generate_voiced_vs_unvoiced()
+	generate_quefrency_results_4_test_files()
 if __name__=='__main__':
 	main()
 
