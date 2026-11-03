@@ -45,11 +45,11 @@ Trong môi trường thực tế, các tệp âm thanh thu được không có s
 ### 3.2. Giả định tỉ lệ 50/50 và Phân bố hai đỉnh (Bimodal Histogram)
 - Trong lời nói tự nhiên, tỉ lệ các đoạn hữu thanh (nguyên âm, bán nguyên âm) và các đoạn vô thanh / khoảng lặng xấp xỉ cân bằng 50% - 50%.
 - Đặc trưng độ nổi bật của đỉnh Cepstrum (Peak Prominence Z-score $v_i = \frac{C_{\max} - \mu}{\sigma}$) tạo thành hai quả đồi phân bố:
-  - **Đỉnh 1 ($M_1 \approx 3.25$):** Nhóm khung vô thanh và khoảng lặng (đặc trưng thấp).
-  - **Đỉnh 2 ($M_2 \approx 5.85$):** Nhóm khung hữu thanh (đặc trưng cao).
+  - **Đỉnh 1 ($M_1 \approx 3.21$):** Nhóm khung vô thanh và khoảng lặng (đặc trưng thấp).
+  - **Đỉnh 2 ($M_2 \approx 5.34$):** Nhóm khung hữu thanh (đặc trưng cao).
 - Điểm cắt tối ưu nằm ở vùng trũng (thung lũng) ngăn cách giữa hai quả đồi.
 - Áp dụng phương pháp Otsu và trung điểm Giannakopoulos:
-  $$T = \frac{M_1 + M_2}{2} \approx 4.40$$
+  $$T_{\text{mid}} = \frac{M_1 + M_2}{2} = \frac{3.21 + 5.34}{2} = 4.28$$
   Tối ưu hóa hàm lỗi sai số MAPE trên tập huấn luyện xác định ngưỡng $T^* = 3.90$.
 
 ![Phân bố Histogram](figures/unsupervised_histogram_analysis.png)
